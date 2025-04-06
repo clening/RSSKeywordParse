@@ -5,42 +5,31 @@
 </head>
 <body>
 <outline text="Feeds" title="Feeds">
-  <outline title="Patrick Breyer"  type="rss" xmlUrl="https://www.patrick-breyer.de/en/feed/" />
-  <outline title="Desystemize"  type="rss" xmlUrl="https://desystemize.substack.com/feed" />
-  <outline title="The EU AI Act Newsletter"  type="rss" xmlUrl="https://artificialintelligenceact.substack.com/feed" />
-  <outline title="Digital Rights Ireland"  type="rss" xmlUrl="https://www.digitalrights.ie/feed/" />
+  <outline title="Patrick Breyer" category="Legal Reading" type="rss" xmlUrl="https://www.patrick-breyer.de/en/feed/" />
+  <outline title="The EU AI Act Newsletter" category="Legal Reading" type="rss" xmlUrl="https://artificialintelligenceact.substack.com/feed" />
+  <outline title="Digital Rights Ireland" category="Legal Reading" type="rss" xmlUrl="https://www.digitalrights.ie/feed/" />
   <outline title="The Watch"  type="rss" xmlUrl="https://radleybalko.substack.com/feed" />
   <outline title="Noahpinion"  type="rss" xmlUrl="https://noahpinion.substack.com/feed" />
-  <outline title="GDPRhub — New pages" category="Add to Obsidian,Decisions" type="rss" xmlUrl="https://gdprhub.eu/index.php?title=Special:NewPages&amp;feed=atom&amp;hideredirs=1&amp;limit=10&amp;render=1" />
+  <outline title="GDPRhub — New pages" category="Legal Reading" type="rss" xmlUrl="https://gdprhub.eu/index.php?title=Special:NewPages&feed=atom&hideredirs=1&limit=10&render=1" />
   <outline title="Platformer"  type="rss" xmlUrl="https://www.platformer.news/feed" />
-  <outline title="Astral Codex Ten"  type="rss" xmlUrl="https://astralcodexten.substack.com/feed" />
-  <outline title="SCOTUSblog"  type="rss" xmlUrl="https://www.scotusblog.com/feed/" />
-  <outline title="Web3 is going just great"  type="rss" xmlUrl="https://web3isgoinggreat.com/feed.xml" />
-  <outline title="Sasha's 'Newsletter'"  type="rss" xmlUrl="https://sashachapin.substack.com/feed" />
-  <outline title="Experimental History"  type="rss" xmlUrl="https://www.experimental-history.com/feed" />
-  <outline title="The Honest Broker"  type="rss" xmlUrl="https://www.honest-broker.com/feed" />
-  <outline title="Freddie deBoer"  type="rss" xmlUrl="https://freddiedeboer.substack.com/feed" />
-  <outline title="Boundless by Paul Millerd"  type="rss" xmlUrl="https://boundless.substack.com/feed" />
-  <outline title="One from Nippon"  type="rss" xmlUrl="https://one-from-nippon.ghost.io/rss/" />
-  <outline title="McMansion Hell"  type="rss" xmlUrl="https://mcmansionhell.com/rss" />
-  <outline title="Citation Needed"  type="rss" xmlUrl="https://citationneeded.news/rss/" />
-  <outline title="Ed Zitron's Where's Your Ed At"  type="rss" xmlUrl="https://www.wheresyoured.at/rss/" />
-  <outline title="Daniel Doyon"  type="rss" xmlUrl="https://readwise-community.ghost.io/2defd8e965b87487102ef0c6db1880/rss/" />
-  <outline title="ribbonfarm"  type="rss" xmlUrl="https://www.ribbonfarm.com/feed/" />
-  <outline title="Retraction Watch"  type="rss" xmlUrl="https://retractionwatch.com/feed/" />
-  <outline title="SLIME MOLD TIME MOLD"  type="rss" xmlUrl="https://slimemoldtimemold.com/feed/" />
-  <outline title="404 Media"  type="rss" xmlUrl="https://www.404media.co/rss" />
-  <outline title="Penelope Trunk Careers"  type="rss" xmlUrl="https://blog.penelopetrunk.com/feed/" />
-  <outline title="JURI - European Parliament"  type="rss" xmlUrl="https://www.europarl.europa.eu/rss/committee/juri/en.xml" />
-  <outline title="a good omen"  type="rss" xmlUrl="https://carlyvalancy.substack.com/feed" />
+  <outline title="SCOTUSblog" category="Legal Reading" type="rss" xmlUrl="https://www.scotusblog.com/feed/" />
+  <outline title="Web3 is going just great" category="Legal Reading" type="rss" xmlUrl="https://web3isgoinggreat.com/feed.xml" />
+  <outline title="Citation Needed" category="Legal Reading" type="rss" xmlUrl="https://citationneeded.news/rss/" />
+  <outline title="Ed Zitron's Where's Your Ed At" category="Add to Obsidian" type="rss" xmlUrl="https://www.wheresyoured.at/rss/" />
+  <outline title="404 Media" category="Legal Reading" type="rss" xmlUrl="https://www.404media.co/rss" />
+  <outline title="JURI - European Parliament" category="Legal Reading" type="rss" xmlUrl="https://www.europarl.europa.eu/rss/committee/juri/en.xml" />
   <outline title="The Atlantic"  type="rss" xmlUrl="http://correspondents.theatlantic.com/feed/all/" />
-  <outline title="The Verge -  Features Posts"  type="rss" xmlUrl="https://www.theverge.com/features/rss/index.xml" />
-  <outline title="writinginthedark on Substack"  type="rss" xmlUrl="https://writinginthedark.substack.com/feed" />
-  <outline title="internetly on Substack"  type="rss" xmlUrl="https://internetly.substack.com/feed" />
   <outline title="The Weird Turn Pro"  type="rss" xmlUrl="https://andymasley.substack.com/feed" />
-  <outline title="Wired"  type="rss" xmlUrl="https://www.wired.com/feed/rss" />
-  <outline title="IAPP Daily Dashboard"  type="rss" xmlUrl="https://privacyassociation.org/rss/daily-dashboard/" />
-  <outline title="IAPP IAPP News"  type="rss" xmlUrl="https://iapp.org/rss" />
+  <outline title="Wired" category="Legal Reading" type="rss" xmlUrl="https://www.wired.com/feed/rss" />
+  <outline title="IAPP Daily Dashboard" category="Legal Reading" type="rss" xmlUrl="https://privacyassociation.org/rss/daily-dashboard/" />
+  <outline title="IAPP IAPP News" category="Legal Reading" type="rss" xmlUrl="https://iapp.org/rss" />
+  <outline title="Matt Levine - Bloomberg Opinion Columnist"  type="rss" xmlUrl="https://www.bloomberg.com/opinion/authors/ARbTQlRLRjE/matthew-s-levine.rss" />
+  <outline title="Bloomberg Technology"  type="rss" xmlUrl="https://feeds.bloomberg.com/technology/news.rss" />
+  <outline title="JURIST News"  type="rss" xmlUrl="http://jurist.org/paperchase/rss.xml" />
+  <outline title="Technology, Media & Telecoms (TMT)"  type="rss" xmlUrl="https://uk.practicallaw.thomsonreuters.com/LegalUpdates/Sector/w-014-7728/rss" />
+  <outline title="Luiza's Newsletter"  type="rss" xmlUrl="https://www.luizasnewsletter.com/feed" />
+  <outline title="Privacy Issues News -- ScienceDaily"  type="rss" xmlUrl="https://www.sciencedaily.com/rss/science_society/privacy_issues.xml" />
+  <outline title="Tech Policy Press" type="rss" xmlUrl="https://www.techpolicy.press/rss/feed.xml" />
 </outline>
 </body>
 </opml>

@@ -5,7 +5,6 @@ import sys
 import re
 import xml.etree.ElementTree as ET
 import feedparser
-# import requests
 from datetime import datetime
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse
@@ -22,7 +21,7 @@ class RSSProcessor:
         """
         self.opml_file = opml_file
         self.output_dir = output_dir
-        self.keywords = keywords or [keywords.txt]
+        self.keywords = keywords or []
         self.feeds = []
         self.results = {}
 
@@ -54,6 +53,57 @@ class RSSProcessor:
         except Exception as e:
             print(f"Error parsing OPML file: {e}")
             sys.exit(1)
+
+    def get_context(self, text, keyword, context_length=50):
+        """
+        Get the context around a keyword in text.
+        
+        Args:
+            text (str): The text to search in
+            keyword (str): The keyword to find
+            context_length (int): Number of characters before and after the keyword
+            
+        Returns:
+            str: Context snippet with the keyword highlighted
+        """
+        keyword_lower = keyword.lower()
+        text_lower = text.lower()
+        
+        matches = []
+        start = 0
+        
+        # Find all occurrences of the keyword
+        while True:
+            pos = text_lower.find(keyword_lower, start)
+            if pos == -1:
+                break
+                
+            # Get the context around the keyword
+            context_start = max(0, pos - context_length)
+            context_end = min(len(text), pos + len(keyword) + context_length)
+            
+            # Extract the actual text with original casing
+            before = text[context_start:pos]
+            keyword_actual = text[pos:pos+len(keyword)]
+            after = text[pos+len(keyword):context_end]
+            
+            # Create a formatted context
+            if context_start > 0:
+                before = f"...{before}"
+            if context_end < len(text):
+                after = f"{after}..."
+                
+            context = f"{before}**{keyword_actual}**{after}"
+            matches.append(context)
+            
+            # Move to the next position
+            start = pos + len(keyword)
+            
+            # Limit to first 3 occurrences to keep the report manageable
+            if len(matches) >= 3:
+                break
+                
+        return matches
 
     def download_feeds(self, max_entries_per_feed=10):
         """Download and process the content of each feed."""
@@ -123,30 +173,45 @@ class RSSProcessor:
                     # Search for keywords
                     if self.keywords:
                         for keyword in self.keywords:
-                            if keyword.lower() in clean_content.lower() or keyword.lower() in entry_title.lower():
+                            combined_text = f"{entry_title} {clean_content}".lower()
+                            if keyword.lower() in combined_text:
                                 if keyword not in self.results:
                                     self.results[keyword] = []
+                                
+                                # Get context snippets for the keyword
+                                title_context = []
+                                if keyword.lower() in entry_title.lower():
+                                    title_context = self.get_context(entry_title, keyword)
+                                
+                                content_context = []
+                                if keyword.lower() in clean_content.lower():
+                                    content_context = self.get_context(clean_content, keyword)
                                 
                                 self.results[keyword].append({
                                     "feed": feed_title,
                                     "title": entry_title,
                                     "link": entry_link,
                                     "date": entry_date,
-                                    "file": entry_path
+                                    "file": entry_path,
+                                    "title_context": title_context,
+                                    "content_context": content_context
                                 })
             
             except Exception as e:
                 print(f"Error processing feed {feed_title}: {e}")
     
     def generate_report(self):
-        """Generate a report of the keywords found."""
+        """Generate a report of the keywords found with context and clickable links."""
         if not self.results:
             print("No keyword matches found.")
             return
         
-        report_path = os.path.join(self.output_dir, "keyword_report.txt")
+        # Generate both a text report and an HTML report for clickable links
+        text_report_path = os.path.join(self.output_dir, "keyword_report.txt")
+        html_report_path = os.path.join(self.output_dir, "keyword_report.html")
         
-        with open(report_path, "w", encoding="utf-8") as f:
+        # Generate text report
+        with open(text_report_path, "w", encoding="utf-8") as f:
             f.write("Keyword Search Report\n")
             f.write("====================\n\n")
             f.write(f"Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
@@ -162,32 +227,131 @@ class RSSProcessor:
                     f.write(f"Title: {match['title']}\n")
                     f.write(f"Link: {match['link']}\n")
                     f.write(f"Date: {match['date']}\n")
-                    f.write(f"File: {match['file']}\n\n")
+                    f.write(f"File: {match['file']}\n")
+                    
+                    # Add context snippets
+                    if match['title_context']:
+                        f.write("\nFound in title:\n")
+                        for ctx in match['title_context']:
+                            f.write(f"  - {ctx}\n")
+                    
+                    if match['content_context']:
+                        f.write("\nFound in content:\n")
+                        for ctx in match['content_context']:
+                            f.write(f"  - {ctx}\n")
+                    
+                    f.write("\n")
                 
                 f.write("\n")
         
-        print(f"Keyword report generated: {report_path}")
+        # Generate HTML report with clickable links
+        with open(html_report_path, "w", encoding="utf-8") as f:
+            f.write("<!DOCTYPE html>\n")
+            f.write("<html lang='en'>\n")
+            f.write("<head>\n")
+            f.write("  <meta charset='UTF-8'>\n")
+            f.write("  <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n")
+            f.write("  <title>Keyword Search Report</title>\n")
+            f.write("  <style>\n")
+            f.write("    body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }\n")
+            f.write("    h1, h2, h3 { color: #333; }\n")
+            f.write("    .keyword { color: #2c5aa0; font-weight: bold; }\n")
+            f.write("    .match { margin-bottom: 30px; border-bottom: 1px solid #eee; padding-bottom: 15px; }\n")
+            f.write("    .context { margin-left: 20px; background-color: #f9f9f9; padding: 10px; border-left: 3px solid #ddd; }\n")
+            f.write("    .highlight { background-color: #ffff00; font-weight: bold; }\n")
+            f.write("    a { color: #0066cc; text-decoration: none; }\n")
+            f.write("    a:hover { text-decoration: underline; }\n")
+            f.write("    .file-link { font-family: monospace; }\n")
+            f.write("  </style>\n")
+            f.write("</head>\n")
+            f.write("<body>\n")
+            f.write("  <h1>Keyword Search Report</h1>\n")
+            f.write(f"  <p>Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>\n")
+            f.write(f"  <p>Keywords: {', '.join(['<span class=\"keyword\">' + k + '</span>' for k in self.keywords])}</p>\n")
+            
+            # Create table of contents
+            f.write("  <h2>Table of Contents</h2>\n")
+            f.write("  <ul>\n")
+            for keyword in self.results.keys():
+                f.write(f'    <li><a href="#{keyword.replace(" ", "_")}">{keyword} ({len(self.results[keyword])} matches)</a></li>\n')
+            f.write("  </ul>\n")
+            
+            # Add each keyword section
+            for keyword, matches in self.results.items():
+                f.write(f'  <h2 id="{keyword.replace(" ", "_")}">Keyword: {keyword}</h2>\n')
+                f.write(f"  <p>Found in {len(matches)} entries</p>\n")
+                
+                for i, match in enumerate(matches):
+                    f.write(f'  <div class="match">\n')
+                    f.write(f'    <h3>{i+1}. <a href="{match["link"]}" target="_blank">{match["title"]}</a></h3>\n')
+                    f.write(f'    <p>Feed: {match["feed"]}<br>\n')
+                    f.write(f'    Date: {match["date"]}<br>\n')
+                    f.write(f'    File: <span class="file-link">{match["file"]}</span></p>\n')
+                    
+                    # Add context snippets
+                    if match['title_context']:
+                        f.write('    <p><strong>Found in title:</strong></p>\n')
+                        f.write('    <div class="context">\n')
+                        for ctx in match['title_context']:
+                            # Replace ** markers with HTML highlight spans
+                            html_ctx = re.sub(r'\*\*(.*?)\*\*', r'<span class="highlight">\1</span>', ctx)
+                            f.write(f'      <p>{html_ctx}</p>\n')
+                        f.write('    </div>\n')
+                    
+                    if match['content_context']:
+                        f.write('    <p><strong>Found in content:</strong></p>\n')
+                        f.write('    <div class="context">\n')
+                        for ctx in match['content_context']:
+                            # Replace ** markers with HTML highlight spans
+                            html_ctx = re.sub(r'\*\*(.*?)\*\*', r'<span class="highlight">\1</span>', ctx)
+                            f.write(f'      <p>{html_ctx}</p>\n')
+                        f.write('    </div>\n')
+                    
+                    f.write('  </div>\n')
+                
+                f.write('\n')
+            
+            f.write("</body>\n")
+            f.write("</html>\n")
+        
+        print(f"Text report generated: {text_report_path}")
+        print(f"HTML report with clickable links generated: {html_report_path}")
 
 # Load up the Keywords.txt file
 def load_keywords(file_path):
-    with open(file_path, 'r', encoding='utf-8') as file:
-        return [line.strip() for line in file if line.strip()]
+    try:
+        with open(file_path, 'r', encoding='utf-8') as file:
+            return [line.strip() for line in file if line.strip()]
+    except Exception as e:
+        print(f"Error loading keywords file: {e}")
+        return []
 
 def main():
     parser = argparse.ArgumentParser(description="Process RSS feeds from OPML and search for keywords")
     parser.add_argument("opml_file", help="Path to the OPML file containing RSS feeds")
     parser.add_argument("--output-dir", "-o", default="feed_content", help="Directory to store downloaded content")
-    parser.add_argument("--file", "-f", help="User provides a file with keywords.")
+    parser.add_argument("--file", "-f", help="Path to a file containing keywords, one per line")
     parser.add_argument("--keywords", "-k", nargs="+", help="Keywords to search for in the feed content")
     parser.add_argument("--max-entries", "-m", type=int, default=10, help="Maximum entries to process per feed")
     
     args = parser.parse_args()
     
-    # Read keywords from the file
-    keywords_file_path = args.file  # Adjust path if necessary
-    keywords = load_keywords(keywords_file_path)
-    keywords += args.keywords or []
-
+    # Collect keywords from both file and command line arguments
+    keywords = []
+    
+    # Read keywords from file if provided
+    if args.file:
+        file_keywords = load_keywords(args.file)
+        keywords.extend(file_keywords)
+        print(f"Loaded {len(file_keywords)} keywords from file")
+    
+    # Add command line keywords if provided
+    if args.keywords:
+        keywords.extend(args.keywords)
+    
+    if not keywords:
+        print("Warning: No keywords specified. Will download feeds but won't search for keywords.")
+    
     processor = RSSProcessor(args.opml_file, args.output_dir, keywords)
     processor.parse_opml()
     processor.download_feeds(args.max_entries)
