@@ -204,11 +204,12 @@ class RSSProcessor:
         """Generate a report of the keywords found with context and clickable links."""
         if not self.results:
             print("No keyword matches found.")
-            return
+            return None, None
         
         # Generate both a text report and an HTML report for clickable links
-        text_report_path = os.path.join(self.output_dir, "keyword_report.txt")
-        html_report_path = os.path.join(self.output_dir, "keyword_report.html")
+        timestamp = datetime.now().strftime("%Y-%m-%d")
+        text_report_path = os.path.join(self.output_dir, f"keyword_report_{timestamp}.txt")
+        html_report_path = os.path.join(self.output_dir, f"keyword_report_{timestamp}.html")
         
         # Generate text report
         with open(text_report_path, "w", encoding="utf-8") as f:
@@ -251,7 +252,7 @@ class RSSProcessor:
             f.write("<head>\n")
             f.write("  <meta charset='UTF-8'>\n")
             f.write("  <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n")
-            f.write("  <title>Keyword Search Report</title>\n")
+            f.write(f"  <title>Keyword Search Report - {timestamp}</title>\n")
             f.write("  <style>\n")
             f.write("    body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }\n")
             f.write("    h1, h2, h3 { color: #333; }\n")
@@ -316,6 +317,8 @@ class RSSProcessor:
         
         print(f"Text report generated: {text_report_path}")
         print(f"HTML report with clickable links generated: {html_report_path}")
+        
+        return text_report_path, html_report_path
 
 # Load up the Keywords.txt file
 def load_keywords(file_path):
@@ -333,7 +336,7 @@ def main():
     parser.add_argument("--file", "-f", help="Path to a file containing keywords, one per line")
     parser.add_argument("--keywords", "-k", nargs="+", help="Keywords to search for in the feed content")
     parser.add_argument("--max-entries", "-m", type=int, default=10, help="Maximum entries to process per feed")
-    
+      
     args = parser.parse_args()
     
     # Collect keywords from both file and command line arguments
@@ -355,7 +358,6 @@ def main():
     processor = RSSProcessor(args.opml_file, args.output_dir, keywords)
     processor.parse_opml()
     processor.download_feeds(args.max_entries)
-    processor.generate_report()
-
+        
 if __name__ == "__main__":
     main()
