@@ -393,6 +393,7 @@ class RSSProcessor:
         timestamp = datetime.now().strftime("%Y-%m-%d")
         text_report_path = os.path.join(self.output_dir, f"keyword_report_{timestamp}.txt")
         html_report_path = os.path.join(self.output_dir, f"keyword_report_{timestamp}.html")
+
         
         # Sort articles by date (newest first, if possible)
         # Use a custom sorting function with better error handling
@@ -547,7 +548,6 @@ def main():
                         help="Number of days back to look for new articles (default: 1)")
     parser.add_argument("--reset-history", "-r", action="store_true", 
                         help="Reset article history (process all articles again)")
-    
     args = parser.parse_args()
     
     # Collect keywords from both file and command line arguments
@@ -580,7 +580,6 @@ def main():
     processor.parse_opml()
     processor.download_feeds(args.max_entries)
     processor.generate_report()
-
 
 if __name__ == "__main__":
     main()
