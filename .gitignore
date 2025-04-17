@@ -1,1 +1,20 @@
-feed_content
+# Ignore Google Drive authentication files
+gdrive_config.json
+gdrive_credentials.json
+client_secrets.json
+
+# Ignore Python virtual environment
+venv/
+env/
+.env/
+
+# Ignore generated content
+feed_content/
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore log files
+*.log

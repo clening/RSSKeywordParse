@@ -1,28 +1,36 @@
-cookies 
-"right of access"
-"right to be forgotten" 
-"right of erasure"
-"search engine"  
-"Digital Markets Act" 
+right of access
+right to be forgotten 
+right of erasure
+search engine  
+Digital Markets Act
+Digital Services Act
+AI Act
+blockchain
+NFT
 CCPA 
-"California Consumer Privacy Act" 
-"California Privacy Protection Agency"
-"behavioral advertising" 
-"automated decisionmaking"
-"ePrivacy Directive"
-"GDPR"
-"General Data Protection Regulation"
-"artificial intelligence" 
+California Consumer Privacy Act
+California Privacy Protection Agency
+behavioral advertising
+automated decisionmaking
+automated decision-making
+ePrivacy Directive
+GDPR
+General Data Protection Regulation
+artificial intelligence
 pseudonymization 
 pseudonymisation 
 anonymization
 anonymisation
-"global privacy control" 
-"cookie rule"
-"privacy enhancing technologies"
+global privacy control
+cookie rule
+privacy enhancing technologies
 PECR
-"service exception"
-"privacy preserving ad measurement"
-"DOGE" 
+privacy preserving ad measurement
+DOGE 
 PETs
-"behavioral advertising"
+behavioral advertising
+data transfers
+EU-US Data Privacy Framework
+EU-U.S. Data Privacy Framework
+EU-US DPF
+EU-U.S. DPF
