@@ -244,7 +244,7 @@ class RSSProcessor:
             # Assume it's recent if we can't compare properly
             return True
 
-    def download_feeds(self, max_entries_per_feed=10):
+    def download_feeds(self, max_entries_per_feed=50):
         """Download and process the content of each feed."""
         if not os.path.exists(self.output_dir):
             os.makedirs(self.output_dir)

@@ -6,6 +6,60 @@ Digital Markets Act
 Digital Services Act
 AI Act
 blockchain
+Adtech
+IAB Tech Lab
+IAB Europe
+IAB Tech Lab Europe
+IAB Tech Lab US
+IAB Tech Lab Asia
+IAB Tech Lab Latin America
+IAB Tech Lab Middle East
+IAB Tech Lab Africa
+Noyb
+National Advertising Initiative
+Real Time Bidding
+RTB
+privacy rights
+deep tech
+wearables
+quantum computing
+internet of thing
+IOT
+data breach
+data privacy
+data security
+data protection impact assessment
+DPIA
+data processing agreement
+third party cookies
+first party cookies
+cookie consent
+consent management
+privacy impact assessment
+privacy by design
+privacy by default
+data protection by design and by default
+profiling
+pseudonymous data
+anonymous data
+ePrivacy Regulation
+data protection authority
+DPA
+Information Commissioner's Office
+European Data Protection Board
+EDPB
+privacy seal
+privacy certification
+privacy engineering
+privacy litigation
+privacy class action
+privacy enforcement
+privacy supervision
+privacy code of conduct
+privacy best practice
+privacy benchmark
+privacy certification
+privacy accreditation
 NFT
 CCPA 
 California Consumer Privacy Act
