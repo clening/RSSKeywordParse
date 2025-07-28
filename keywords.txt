@@ -73,7 +73,6 @@ HIPAA
 GLBA
 FCRA
 ECPA
-SCA
 TCPA
 California Consumer Privacy Act
 Illinois Biometric Information Privacy Act
@@ -106,7 +105,6 @@ large language models
 LLMs
 generative AI
 artificial general intelligence
-AGI
 machine learning algorithms
 deep learning
 neural networks
@@ -188,13 +186,11 @@ CPPA
 European Data Protection Board
 EDPB
 Information Commissioner's Office
-ICO
 CNIL
 Irish Data Protection Commission
 
 # Privacy Advocacy Organizations
 Electronic Frontier Foundation
-EFF
 ACLU
 Privacy International
 Future of Privacy Forum
