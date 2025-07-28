@@ -215,9 +215,7 @@ consent decree
 civil penalty
 data breach notification
 privacy impact assessment
-PIA
 data protection impact assessment
-DPIA
 
 # Palantir Specific Products
 Palantir Gotham
