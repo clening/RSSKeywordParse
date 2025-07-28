@@ -1,90 +1,231 @@
-right of access
-right to be forgotten 
-right of erasure
-search engine  
-Digital Markets Act
-Digital Services Act
+# Companies & Key Players - Surveillance/Tech Companies
+Palantir Technologies
+Anduril Industries
+Clearview AI
+NSO Group
+Cellebrite
+Verint Systems
+Harris Corporation
+Axon Enterprise
+Cognyte
+Babel Street
+Dataminr
+Grayshift
+MSAB
+Pen-Link
+
+# Key Executives
+Peter Thiel
+Alex Karp
+Stephen Cohen
+Shyam Sankar
+Palmer Luckey
+
+# Biometric & Recognition Systems
+facial recognition
+biometric identification
+biometric verification
+iris scanning
+voice recognition
+gait analysis
+behavioral biometrics
+liveness detection
+
+# Location & Movement Tracking
+cell site simulator
+IMSI catcher
+Stingray device
+automatic license plate recognition
+ALPR
+geofencing
+location intelligence
+mobile device forensics
+
+# Data Collection & Analysis
+social media monitoring
+OSINT
+predictive policing
+social scoring
+risk assessment algorithms
+pattern-of-life analysis
+relationship mapping
+sentiment analysis
+
+# Communication Surveillance
+end-to-end encryption
+client-side scanning
+lawful intercept
+telecommunications interception
+metadata collection
+traffic analysis
+communication pattern analysis
+
+# US Federal & State Privacy Laws
+CCPA
+CPRA
+BIPA
+Virginia Consumer Data Protection Act
+Colorado Privacy Act
+Connecticut Privacy Act
+Utah Consumer Privacy Act
+COPPA
+HIPAA
+GLBA
+FCRA
+ECPA
+SCA
+TCPA
+California Consumer Privacy Act
+Illinois Biometric Information Privacy Act
+Gramm-Leach-Bliley Act
+Fair Credit Reporting Act
+Electronic Communications Privacy Act
+Stored Communications Act
+Telephone Consumer Protection Act
+
+# EU Regulations
+GDPR
 AI Act
-blockchain
-Adtech
-IAB Tech Lab
-IAB Europe
-IAB Tech Lab Europe
-IAB Tech Lab US
-IAB Tech Lab Asia
-IAB Tech Lab Latin America
-IAB Tech Lab Middle East
-IAB Tech Lab Africa
-Noyb
-National Advertising Initiative
-Real Time Bidding
-RTB
-privacy rights
-deep tech
-wearables
-quantum computing
-internet of thing
-IOT
-data breach
-data privacy
-data security
-data protection impact assessment
-DPIA
-data processing agreement
-third party cookies
-first party cookies
-cookie consent
-consent management
-privacy impact assessment
+Digital Services Act
+Digital Markets Act
+ePrivacy Directive
+NIS-2 Directive
+Data Governance Act
+Data Act
+Cyber Resilience Act
+General Data Protection Regulation
+
+# International Privacy Laws
+PIPEDA
+LGPD
+POPIA
+Privacy Act 1988
+
+# AI Technologies
+large language models
+LLMs
+generative AI
+artificial general intelligence
+AGI
+machine learning algorithms
+deep learning
+neural networks
+computer vision
+natural language processing
+reinforcement learning from human feedback
+RLHF
+
+# AI Governance & Ethics
+algorithmic accountability
+algorithmic bias
+AI governance
+responsible AI
+AI ethics
+automated decision-making
+high-risk AI systems
+AI impact assessment
+algorithmic auditing
+AI transparency
+
+# Data Protection Principles
+data minimization
+purpose limitation
+storage limitation
+accuracy principle
+accountability principle
+transparency principle
 privacy by design
 privacy by default
-data protection by design and by default
-profiling
-pseudonymous data
-anonymous data
-ePrivacy Regulation
-data protection authority
-DPA
-Information Commissioner's Office
+
+# Privacy-Enhancing Technologies
+pseudonymization
+anonymization
+differential privacy
+homomorphic encryption
+secure multi-party computation
+zero-knowledge proofs
+privacy-enhancing technologies
+PETs
+federated learning
+trusted execution environments
+
+# Data Rights
+right to access
+right to erasure
+right to be forgotten
+right to rectification
+right to data portability
+right to object
+right to restrict processing
+right to opt-out
+
+# Advanced Surveillance Technologies
+drone surveillance
+satellite imagery analysis
+IoT surveillance
+smart city monitoring
+predictive analytics
+behavioral prediction
+crowd analytics
+emotion recognition
+
+# Emerging Privacy Challenges
+neural privacy
+brain-computer interfaces
+quantum computing threats
+deepfakes
+synthetic media detection
+digital twins
+metaverse privacy
+augmented reality privacy
+deep tech
+
+# Regulatory Bodies
+Federal Trade Commission
+FTC
+California Privacy Protection Agency
+CPPA
 European Data Protection Board
 EDPB
-privacy seal
-privacy certification
-privacy engineering
+Information Commissioner's Office
+ICO
+CNIL
+Irish Data Protection Commission
+
+# Privacy Advocacy Organizations
+Electronic Frontier Foundation
+EFF
+ACLU
+Privacy International
+Future of Privacy Forum
+International Association of Privacy Professionals
+IAPP
+Center for Democracy & Technology
+Algorithmic Justice League
+AI Now Institute
+
+# Government AI Initiatives
+DOGE
+NIST AI Risk Management Framework
+EU AI Office
+UK AI Taskforce
+Department of Government Efficiency
+
+# Legal & Enforcement Terms
 privacy litigation
-privacy class action
-privacy enforcement
-privacy supervision
-privacy code of conduct
-privacy best practice
-privacy benchmark
-privacy certification
-privacy accreditation
-NFT
-CCPA 
-California Consumer Privacy Act
-California Privacy Protection Agency
-behavioral advertising
-automated decisionmaking
-automated decision-making
-ePrivacy Directive
-GDPR
-General Data Protection Regulation
-artificial intelligence
-pseudonymization 
-pseudonymisation 
-anonymization
-anonymisation
-global privacy control
-cookie rule
-privacy enhancing technologies
-PECR
-privacy preserving ad measurement
-DOGE 
-PETs
-behavioral advertising
-data transfers
-EU-US Data Privacy Framework
-EU-U.S. Data Privacy Framework
-EU-US DPF
-EU-U.S. DPF
+class action lawsuit
+regulatory investigation
+consent decree
+civil penalty
+data breach notification
+privacy impact assessment
+PIA
+data protection impact assessment
+DPIA
+
+# Palantir Specific Products
+Palantir Gotham
+Palantir Foundry
+Palantir AIP
+AIP
+Palantir Apollo
